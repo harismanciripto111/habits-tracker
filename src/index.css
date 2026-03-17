@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-:root {
+:root,
+[data-theme='light'] {
   --green-light: #a8d5ba;
   --green-mid: #6b9e7e;
   --green-dark: #4a7c5f;
@@ -12,12 +13,43 @@
   --text-secondary: #6b7c6e;
   --text-muted: #9ba89d;
   --white: #ffffff;
+  --card-bg: #ffffff;
+  --border-color: #f0ece5;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
   --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --heatmap-0: #ebedf0;
+  --heatmap-1: #c6e48b;
+  --heatmap-2: #7bc96f;
+  --heatmap-3: #239a3b;
+  --heatmap-4: #196127;
+}
+
+[data-theme='dark'] {
+  --green-light: #2d4a37;
+  --green-mid: #5a9a6e;
+  --green-dark: #7cc494;
+  --green-deep: #a8d5ba;
+  --beige-light: #1a1a2e;
+  --beige: #242438;
+  --beige-dark: #33334d;
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a0b8;
+  --text-muted: #6e6e88;
+  --white: #1e1e32;
+  --card-bg: #242438;
+  --border-color: #33334d;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.4);
+  --heatmap-0: #2d2d44;
+  --heatmap-1: #0e4429;
+  --heatmap-2: #006d32;
+  --heatmap-3: #26a641;
+  --heatmap-4: #39d353;
 }
 
 * {
@@ -32,6 +64,7 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {
