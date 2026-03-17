@@ -1,0 +1,483 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green-dark);
+  letter-spacing: -0.5px;
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  background: var(--white);
+  border: 1.5px solid var(--beige-dark);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.nav-btn:hover {
+  background: var(--green-light);
+  border-color: var(--green-mid);
+  color: var(--green-deep);
+}
+
+.today-btn {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 16px;
+}
+
+/* Grid Container */
+.grid-container {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid var(--beige-dark);
+}
+
+.grid-wrapper {
+  overflow-x: auto;
+  padding: 2px;
+}
+
+/* Table */
+.habits-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+
+.habits-table th,
+.habits-table td {
+  padding: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Header cells */
+.habit-name-header {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background: var(--beige);
+  text-align: left;
+  padding: 12px 14px !important;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 160px;
+}
+
+.day-header {
+  padding: 8px 0 !important;
+  min-width: 32px;
+  width: 32px;
+  background: var(--beige);
+}
+
+.day-header.today {
+  background: var(--green-light);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.day-name {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 1px;
+}
+
+.day-num {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.day-header.today .day-name,
+.day-header.today .day-num {
+  color: var(--green-deep);
+}
+
+.completion-header {
+  position: sticky;
+  right: 0;
+  z-index: 10;
+  background: var(--beige);
+  min-width: 60px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 8px !important;
+}
+
+/* Habit rows */
+.habit-row {
+  transition: background 0.15s ease;
+}
+
+.habit-row:hover {
+  background: var(--beige-light);
+}
+
+.habit-row:not(:last-child) .habit-name-cell,
+.habit-row:not(:last-child) .check-cell,
+.habit-row:not(:last-child) .completion-cell {
+  border-bottom: 1px solid #f0ece5;
+}
+
+.habit-name-cell {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background: var(--white);
+  text-align: left;
+  padding: 10px 14px !important;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  min-width: 160px;
+}
+
+.habit-row:hover .habit-name-cell {
+  background: var(--beige-light);
+}
+
+.habit-name-cell:hover {
+  background: var(--beige) !important;
+}
+
+.habit-emoji {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.habit-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Checkboxes */
+.check-cell {
+  padding: 6px 2px !important;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.check-cell:hover {
+  background: var(--beige);
+}
+
+.check-cell.today-col {
+  background: rgba(168, 213, 186, 0.12);
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  border: 1.5px solid var(--beige-dark);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--white);
+}
+
+.checkbox.checked {
+  background: var(--green-mid);
+  border-color: var(--green-mid);
+  color: white;
+  transform: scale(1.05);
+}
+
+.checkbox:hover {
+  border-color: var(--green-mid);
+}
+
+.check-cell.checked .checkbox {
+  animation: pop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1.05); }
+}
+
+/* Completion badge */
+.completion-cell {
+  position: sticky;
+  right: 0;
+  z-index: 5;
+  background: var(--white);
+  padding: 8px !important;
+}
+
+.habit-row:hover .completion-cell {
+  background: var(--beige-light);
+}
+
+.completion-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.completion-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.completion-pct {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Add Habit Button */
+.add-habit-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 28px;
+  background: var(--green-mid);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.add-habit-btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.emoji-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.emoji-option {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--beige-dark);
+  background: var(--beige-light);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.emoji-option:hover {
+  border-color: var(--green-mid);
+  background: var(--white);
+}
+
+.emoji-option.selected {
+  border-color: var(--green-mid);
+  background: var(--green-light);
+  transform: scale(1.1);
+}
+
+.habit-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--beige-dark);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--beige-light);
+  transition: border-color 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.habit-input:focus {
+  outline: none;
+  border-color: var(--green-mid);
+  background: var(--white);
+}
+
+.habit-input::placeholder {
+  color: var(--text-muted);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.cancel-btn, .delete-btn, .submit-btn {
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.cancel-btn {
+  background: var(--beige);
+  color: var(--text-secondary);
+}
+
+.cancel-btn:hover {
+  background: var(--beige-dark);
+}
+
+.delete-btn {
+  background: #fde8e8;
+  color: #c53030;
+  margin-right: auto;
+}
+
+.delete-btn:hover {
+  background: #fbd5d5;
+}
+
+.submit-btn {
+  background: var(--green-mid);
+  color: white;
+}
+
+.submit-btn:hover {
+  background: var(--green-dark);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .app {
+    padding: 16px 12px 32px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .habit-name-header,
+  .habit-name-cell {
+    min-width: 120px;
+  }
+
+  .habit-label {
+    font-size: 12px;
+  }
+
+  .habit-emoji {
+    font-size: 14px;
+    margin-right: 5px;
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .day-header {
+    min-width: 28px;
+    width: 28px;
+  }
+}
